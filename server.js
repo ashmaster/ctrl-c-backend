@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const cors = require('cors')
 mongoose.Promise = global.Promise;
 
 mongoose.connect('mongodb+srv://Ashish:user1234@cluster0-6utsm.mongodb.net/User?retryWrites=true&w=majority',{
@@ -11,7 +11,7 @@ mongoose.connect('mongodb+srv://Ashish:user1234@cluster0-6utsm.mongodb.net/User?
 }).catch(err => console.log(err))
 
 const app = express();
-
+app.use(cors())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
