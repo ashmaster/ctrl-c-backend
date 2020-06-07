@@ -21,6 +21,6 @@ app.get('/',(req,res)=>{
     res.json({'message':'Running Successfully'})
 })
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 5000,()=>{
     console.log('Server running at 3000')
 })
