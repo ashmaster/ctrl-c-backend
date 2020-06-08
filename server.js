@@ -33,6 +33,14 @@ io.on("connection",socket => {
             console.log(err)
         }
     })
+    socket.on('newUser',async (user) => {
+        try{
+            await User.findOne({_id:user}).updateOne({socketId:socket.id})
+        }
+        catch(err){
+            console.log(err)
+        }
+    })
 })
 
 

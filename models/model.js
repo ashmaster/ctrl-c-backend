@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const User = mongoose.Schema({
     text:[],
+    socketId:''
 },{
     timestamps:true
 })
