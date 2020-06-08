@@ -41,6 +41,15 @@ io.on("connection",socket => {
             console.log(err)
         }
     })
+    socket.on('sent',async (user) => {
+        try{
+            User.findById(user)
+            .then((res)=>socket.to(res.data.socketId).emit('new'))
+        }
+        catch(err){
+            console.log(err)
+        }
+        })
 })
 
 
